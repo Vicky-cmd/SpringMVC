@@ -1,0 +1,11 @@
+com.infotrends.in.sports.annotations.services.AppConfig=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.BasketBallCoach=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.CricketCoach=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.CricketWorkOutService=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.DefaultConfigurations=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.DevConfigurations=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.TennisCoach=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.TrackWorkOutService=org.springframework.stereotype.Component
+com.infotrends.in.sports.annotations.services.TracksCoach=org.springframework.stereotype.Component
+com.infotrends.in.sports.xmls.services.TennisCoach=org.springframework.stereotype.Component
+com.infotrends.in.webapp.HomeController=org.springframework.stereotype.Component

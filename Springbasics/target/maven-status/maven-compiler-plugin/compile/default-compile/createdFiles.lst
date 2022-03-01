@@ -1,0 +1,12 @@
+com\infotrends\in\Springbasics\service\GreetingService.class
+com\infotrends\in\Springbasics\service\OutputService.class
+com\infotrends\in\Springbasics\aspects\LoggableAspect.class
+com\infotrends\in\Springbasics\service\v2\TimerService.class
+com\infotrends\in\Springbasics\aspects\Loggable.class
+com\infotrends\in\Springbasics\config\ApplicationAnnotationConfig.class
+com\infotrends\in\Springbasics\service\TimerService.class
+com\infotrends\in\Springbasics\service\v2\OutputService.class
+com\infotrends\in\Springbasics\AnnotationBasedApplication.class
+com\infotrends\in\Springbasics\service\v2\GreetingService.class
+com\infotrends\in\Springbasics\App.class
+com\infotrends\in\Springbasics\config\ApplicationConfig.class

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+   <bean id="workOutMetrics" class="java.util.LinkedList">
+       <constructor-arg type="java.util.Collection" value="#{{5,6,9,10,10,11,11}}"/>
+   </bean>
+
+    <bean id="workOutService" class="com.infotrends.in.sports.xmls.services.TrackWorkOutService">
+        <constructor-arg ref="workOutMetrics" />
+    </bean>
+
+    <bean id="cricketWorkOutMetrics" class="java.util.LinkedList">
+        <constructor-arg type="java.util.Collection" value="#{{25,30,23,15,20,28,26}}"/>
+    </bean>
+
+    <bean id="cricketWorkOutService" class="com.infotrends.in.sports.xmls.services.CricketWorkOutService">
+        <constructor-arg ref="cricketWorkOutMetrics"/>
+    </bean>
+
+    <bean id="basketBallCoach" class="com.infotrends.in.sports.xmls.services.BasketBallCoach" />
+    <bean id="trackCoach" class="com.infotrends.in.sports.xmls.services.TracksCoach">
+        <constructor-arg ref="workOutService"/>
+    </bean>
+
+    <bean id="cricketCoach" class="com.infotrends.in.sports.xmls.services.CricketCoach">
+        <property name="workOutService" ref="cricketWorkOutService"/>
+    </bean>
+
+    <bean id="appConfig" class="com.infotrends.in.sports.xmls.services.AppConfig"
+        init-method="init">
+        <property name="coachType" value="${coach.type}"/>
+    </bean>
+
+    <bean id="scanner" class="java.util.Scanner">
+        <constructor-arg type="java.io.InputStream" value="#{T(java.lang.System).in}"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:sports-properties.properties"/>
+    <context:component-scan base-package="com.infotrends.in.sports"/>
+
+</beans>

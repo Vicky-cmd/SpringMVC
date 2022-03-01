@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/util
+    https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="is24hrFormat" class="java.lang.Boolean">
+        <constructor-arg type="java.lang.Boolean" value="#{new Boolean(environment['spring.profiles.active']!='dev')}"/>
+    </bean>
+
+    <bean id="timerService" class="com.infotrends.in.Springbasics.service.TimerService;">
+        <constructor-arg ref="is24hrFormat"/>
+    </bean>
+
+    <bean id="greetingService" class="com.infotrends.in.Springbasics.service.GreetingService">
+        <constructor-arg index="0" value="${app.greeting}"/>
+    </bean>
+
+    <bean id="outputService" class="com.infotrends.in.Springbasics.service.OutputService">
+        <constructor-arg index="0" ref="timerService"/>
+        <constructor-arg index="1" ref="greetingService"/>
+        <constructor-arg index="2" value="${app.name}"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:application.properties"/>
+</beans>
